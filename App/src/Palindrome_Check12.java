@@ -1,27 +1,21 @@
-// UC2: Print a Hardcoded Palindrome Result
+// UC3: Palindrome Check Using String Reverse
 
 public class Palindrome_Check12 {
 
     public static void main(String[] args) {
-        // Hardcoded string to check
-        String str = "madam";
+        String original = "radar"; // Hardcoded input string
+        String reversed = "";
 
-        // Check if the string is a palindrome
-        boolean isPalindrome = true;
-        int length = str.length();
-
-        for (int i = 0; i < length / 2; i++) {
-            if (str.charAt(i) != str.charAt(length - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        // Reverse the string using a loop
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed += original.charAt(i);
         }
 
-        // Print the result
-        if (isPalindrome) {
-            System.out.println("\"" + str + "\" is a palindrome.");
+        // Check if the original string is a palindrome
+        if (original.equals(reversed)) {
+            System.out.println("\"" + original + "\" is a palindrome.");
         } else {
-            System.out.println("\"" + str + "\" is not a palindrome.");
+            System.out.println("\"" + original + "\" is not a palindrome.");
         }
     }
 }
