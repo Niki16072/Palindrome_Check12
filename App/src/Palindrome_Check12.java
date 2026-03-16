@@ -1,5 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Palindrome_Check12 {
@@ -7,27 +6,23 @@ public class Palindrome_Check12 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Deque<Character> deque = new ArrayDeque<>();
+        LinkedList<Character> list = new LinkedList<>();
 
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        // convert to lowercase and remove spaces
-        input = input.toLowerCase().replaceAll("\\s+", "");
-
-        // insert characters into deque
+        // Convert string to linked list
         for (char c : input.toCharArray()) {
-            deque.addLast(c);
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // compare front and rear
-        while (deque.size() > 1) {
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
+        while (list.size() > 1) {
+            char first = list.removeFirst();
+            char last = list.removeLast();
 
-            if (front != rear) {
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
