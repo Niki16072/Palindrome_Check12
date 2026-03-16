@@ -1,15 +1,27 @@
-// UC1: Application Entry & Welcome Message
+// UC2: Print a Hardcoded Palindrome Result
 
 public class Palindrome_Check12 {
 
     public static void main(String[] args) {
-        // Display Welcome Message and App Details
-        System.out.println("Welcome to the Palindrome Checker App!");
-        System.out.println("Version: 1.0");
-        System.out.println("This application checks if a given string is a palindrome.\n");
+        // Hardcoded string to check
+        String str = "madam";
 
-        // Proceed to next steps or logic...
-        // For now, just a placeholder message
-        System.out.println("Ready to check palindromes...");
+        // Check if the string is a palindrome
+        boolean isPalindrome = true;
+        int length = str.length();
+
+        for (int i = 0; i < length / 2; i++) {
+            if (str.charAt(i) != str.charAt(length - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Print the result
+        if (isPalindrome) {
+            System.out.println("\"" + str + "\" is a palindrome.");
+        } else {
+            System.out.println("\"" + str + "\" is not a palindrome.");
+        }
     }
 }
