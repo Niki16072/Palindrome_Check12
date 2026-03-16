@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Palindrome_Check12 {
@@ -6,26 +5,25 @@ public class Palindrome_Check12 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        LinkedList<Character> list = new LinkedList<>();
 
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        // Convert string to linked list
-        for (char c : input.toCharArray()) {
-            list.add(c);
-        }
+        // Normalize string (remove spaces and convert to lowercase)
+        input = input.replaceAll("\\s+", "").toLowerCase();
 
+        int start = 0;
+        int end = input.length() - 1;
         boolean isPalindrome = true;
 
-        while (list.size() > 1) {
-            char first = list.removeFirst();
-            char last = list.removeLast();
-
-            if (first != last) {
+        // Compare characters from both ends
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
                 isPalindrome = false;
                 break;
             }
+            start++;
+            end--;
         }
 
         if (isPalindrome) {
