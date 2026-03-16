@@ -1,37 +1,15 @@
-import java.util.Scanner;
+// UC1: Application Entry & Welcome Message
 
 public class Palindrome_Check12 {
 
-    // Recursive method
-    public static boolean checkPalindrome(String str, int start, int end) {
-
-        // Base condition
-        if (start >= end) {
-            return true;
-        }
-
-        // If characters are not equal
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call
-        return checkPalindrome(str, start + 1, end - 1);
-    }
-
     public static void main(String[] args) {
+        // Display Welcome Message and App Details
+        System.out.println("Welcome to the Palindrome Checker App!");
+        System.out.println("Version: 1.0");
+        System.out.println("This application checks if a given string is a palindrome.\n");
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a string: ");
-        String input = sc.nextLine();
-
-        boolean result = checkPalindrome(input, 0, input.length() - 1);
-
-        if (result) {
-            System.out.println("The string is a Palindrome.");
-        } else {
-            System.out.println("The string is NOT a Palindrome.");
-        }
+        // Proceed to next steps or logic...
+        // For now, just a placeholder message
+        System.out.println("Ready to check palindromes...");
     }
 }
