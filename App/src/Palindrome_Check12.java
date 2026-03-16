@@ -1,28 +1,22 @@
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Palindrome_Check12 {
 
-    // Method 1: Reverse String
-    public static boolean reverseMethod(String input) {
-        String reversed = new StringBuilder(input).reverse().toString();
-        return input.equals(reversed);
-    }
+    // Recursive method
+    public static boolean checkPalindrome(String str, int start, int end) {
 
-    // Method 2: Stack Method
-    public static boolean stackMethod(String input) {
-        Stack<Character> stack = new Stack<>();
-
-        for (char c : input.toCharArray()) {
-            stack.push(c);
+        // Base condition
+        if (start >= end) {
+            return true;
         }
 
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
-                return false;
-            }
+        // If characters are not equal
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
         }
-        return true;
+
+        // Recursive call
+        return checkPalindrome(str, start + 1, end - 1);
     }
 
     public static void main(String[] args) {
@@ -32,22 +26,12 @@ public class Palindrome_Check12 {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        // Reverse Method Timing
-        long start1 = System.nanoTime();
-        boolean result1 = reverseMethod(input);
-        long end1 = System.nanoTime();
-        long time1 = end1 - start1;
+        boolean result = checkPalindrome(input, 0, input.length() - 1);
 
-        // Stack Method Timing
-        long start2 = System.nanoTime();
-        boolean result2 = stackMethod(input);
-        long end2 = System.nanoTime();
-        long time2 = end2 - start2;
-
-        System.out.println("Reverse Method Result: " + result1);
-        System.out.println("Reverse Method Time: " + time1 + " ns");
-
-        System.out.println("Stack Method Result: " + result2);
-        System.out.println("Stack Method Time: " + time2 + " ns");
+        if (result) {
+            System.out.println("The string is a Palindrome.");
+        } else {
+            System.out.println("The string is NOT a Palindrome.");
+        }
     }
 }
